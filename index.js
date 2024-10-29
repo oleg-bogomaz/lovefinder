@@ -21,9 +21,9 @@ getGroupFollowers = async (groupId, offset = 0) => {
     const result = items.filter((item) => {
         const lastVisitTime = item.last_seen?.time
         const lastVisitDate = new Date(lastVisitTime * 1000)
-
         const currentDate = new Date()
         const weekAgo = new Date(currentDate.getTime() - 7 * 24 * 60 * 60 * 1000)
+
         if (
             item.is_closed === false &&
             item.sex === 1 &&
@@ -80,7 +80,7 @@ const getRelation = (relation) => {
     }
 }
 
-getGroupFollowers("blaga_nice").then((data) => {
+getGroupFollowers(process.env.GROUP_ID_OR_NAME).then((data) => {
     const wb = new xl.Workbook()
     const ws = wb.addWorksheet("Sheet 1")
     const titleStyle = wb.createStyle({
