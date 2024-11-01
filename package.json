@@ -3,7 +3,8 @@
     "version": "1.0.0",
     "main": "index.js",
     "scripts": {
-        "start": "node index.js"
+        "group": "node group_parser.js",
+        "users": "node users_parser.js"
     },
     "author": "",
     "license": "ISC",
